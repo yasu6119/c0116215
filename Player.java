@@ -50,8 +50,8 @@ public class Player {
     public static void gameStart() {//ゲーム開始時の初期化
         try {
             Battle.isLastBOSS = false;
-            File file = new File("17han data - playerStatus.csv");
-            File file2 = new File("17han data - cardList.csv");
+            File file = new File("playerStatus.csv");
+            File file2 = new File("cardList.csv");
             BufferedReader br = new BufferedReader(new FileReader(file));
 
             for (int i = 0; i < 2; i++) {

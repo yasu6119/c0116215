@@ -45,7 +45,7 @@ public class Enemy {
         Random r = new Random();
         try {
 
-            File file = new File("17han data - enemyStatus.csv");
+            File file = new File("enemyStatus.csv");
             BufferedReader br = new BufferedReader(new FileReader(file));
             int a = r.nextInt(2) + (enemyLevel * 2);
 

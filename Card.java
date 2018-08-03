@@ -35,7 +35,7 @@ public class Card {
     public Card(int no) {//コンストラクタ
 
         try {
-            File file = new File("17han data - cardList.csv");
+            File file = new File("cardList.csv");
             BufferedReader br = new BufferedReader(new FileReader(file));
 
             for (int i = 0; i < no + 2; i++) {
@@ -517,11 +517,11 @@ public class Card {
                 }
                 break;
             case 36://ナイフを手札に加える
-                
+
                 if (target == 0) {
-                     System.out.println("ナイフを" + effectLevel + "枚手札に加えた");
+                    System.out.println("ナイフを" + effectLevel + "枚手札に加えた");
                     for (int i = 0; i < effectLevel; i++) {
-                       
+
                         Player.getHand().add(new Card(30));
                     }
                 } else {
@@ -537,7 +537,7 @@ public class Card {
                     System.out.println("手札を" + effectLevel + "枚選んで捨ててください");
 
                     for (int i = 0; i < effectLevel; i++) {
-                         if (Player.getHand().size()==0) {
+                        if (Player.getHand().size() == 0) {
                             break;
                         }
                         Player.battleHand();
@@ -555,7 +555,7 @@ public class Card {
                 } else {
                     Random r2 = new Random();
                     for (int i = 0; i < effectLevel; i++) {
-                        if (Enemy.getHand().size()==0) {
+                        if (Enemy.getHand().size() == 0) {
                             break;
                         }
                         int a = r2.nextInt(Enemy.getHand().size());
@@ -570,11 +570,13 @@ public class Card {
                 if (target == 0) {
                     int damage = calcDamage(target, Player.getPlayCount() * effectLevel);
                     Enemy.damage(damage);
+                      System.out.println(damage + "ダメージ！");
                 } else {
                     int damage = calcDamage(target, Enemy.getPlayCount() * effectLevel);
                     Player.damage(damage);
+                      System.out.println(damage + "ダメージ！");
                 }
-                System.out.println(damage + "ダメージ！");
+              
                 break;
             case 39://最初に使ったら追加ダメージ
                 if (target == 0) {
@@ -592,6 +594,7 @@ public class Card {
 
             case 40://素手攻撃ダメージアップ
                 if (target == 0) {
+                    System.out.println("こぶしのキレが"+effectLevel+"あがった！");
                     Battle.punchDamage += effectLevel;
                 }
                 break;
@@ -604,19 +607,19 @@ public class Card {
                     }
                 }
                 break;
-                 case 42://スーパースター
+            case 42://スーパースター
                 if (target == 0) {
-                    if (Player.getDeck().getTop()==Player.getDeckList().size()) {
-                        System.out.println(effectLevel+"ダメージ！");
+                    if (Player.getDeck().getTop() == Player.getDeckList().size()) {
+                        System.out.println(effectLevel + "ダメージ！");
                         Enemy.damage(calcDamage(target, effectLevel));
-                    }else{
+                    } else {
                         System.out.println("しかし何も起こらなかった    ");
                     }
-                }else{
-                     if (Enemy.getDeck().getTop()==Enemy.getDeck().getDeck().size()) {
-                        System.out.println(effectLevel+"ダメージ！");
+                } else {
+                    if (Enemy.getDeck().getTop() == Enemy.getDeck().getDeck().size()) {
+                        System.out.println(effectLevel + "ダメージ！");
                         Player.damage(calcDamage(target, effectLevel));
-                    }else{
+                    } else {
                         System.out.println("しかし何も起こらなかった    ");
                     }
                 }

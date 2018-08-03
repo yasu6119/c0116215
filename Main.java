@@ -204,7 +204,7 @@ public class Main {
                     fileString = "gamen.txt";
                     break;
                 case "2":
-                    fileString = "map rule.txt";
+                    fileString = "map.txt";
                     break;
                 case "3":
                     fileString = "battle rule.txt";
